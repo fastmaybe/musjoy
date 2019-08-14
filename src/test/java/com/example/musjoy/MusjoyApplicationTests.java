@@ -2,6 +2,7 @@ package com.example.musjoy;
 
 import com.example.musjoy.mapper.UserMapper;
 import com.example.musjoy.pojo.User;
+import com.example.musjoy.utils.IdWorker;
 import com.example.musjoy.utils.JpushUtils;
 import com.example.musjoy.utils.SnowFlake;
 import com.github.tobato.fastdfs.domain.MataData;
@@ -61,16 +62,17 @@ public class MusjoyApplicationTests {
 
     @Test
     public void test1(){
+        IdWorker idWorker = new IdWorker(1L, 2L);
         long nextId = snowFlake.getNextId();
         long nextId2 = snowFlake.getNextId();
-        long nextId3 = snowFlake.getNextId();
-        long nextId4 = snowFlake.getNextId();
-        long nextId5 = snowFlake.getNextId();
+        System.out.println(nextId);
+        System.out.println(nextId2);
+        long l = idWorker.nextId();
+        long l2 = idWorker.nextId();
+        System.out.println(l);
+        System.out.println(l2);
+        System.out.println(nextId -l);
 
-        System.out.println(nextId -nextId2);
-        System.out.println(nextId2 -nextId3);
-        System.out.println(nextId3 -nextId4);
-        System.out.println(nextId4 -nextId5);
     }
     @Test
     public void test2() throws FileNotFoundException {
